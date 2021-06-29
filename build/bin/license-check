@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -e
+
+if [ ! -d "build/tools" ]; then
+    git clone https://github.com/onosproject/build-tools.git build/tools
+fi
+
+git -C build/tools checkout v0.6.1
+
+./build/tools/licensing/boilerplate.py -v --rootdir=$(pwd)
